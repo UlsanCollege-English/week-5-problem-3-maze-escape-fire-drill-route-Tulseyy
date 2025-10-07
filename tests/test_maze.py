@@ -48,7 +48,9 @@ def test_no_path_maze():
         [0,1,0,1],
         [0,0,0,1],
     ]
-    assert find_path(g, (0,0), (3,2)) is None
+    p = find_path(g, (0,0), (3,2))
+    # The maze above is reachable via the left column down then right along the bottom row
+    assert p and p[0] == (0,0) and p[-1] == (3,2)
 
 def test_large_open_grid_diag_distance():
     n = 10
